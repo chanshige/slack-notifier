@@ -103,4 +103,13 @@ class SlackMessageTest extends TestCase
             (string)$message
         );
     }
+
+    /**
+     * @expectedException \LogicException
+     * @expectedExceptionMessage Must hold only SlackMessageInterface instances.
+     */
+    public function testFailedAttachmentInstance()
+    {
+        (new SlackMessage())->attachments([new \ArrayIterator()]);
+    }
 }

@@ -1,0 +1,5 @@
+.idea
+.pdepend
+.php_cs.cache
+/build
+/vendor

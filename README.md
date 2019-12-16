@@ -1,6 +1,12 @@
 # Slack Notifier
 Slackへのメッセージ投稿を簡単にするやつ
 
+## installation
+With Composer
+```
+$ composer require chanshige/slack-notifier 'v0.1'
+```
+
 ## usage
  ```php
 <?php

@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Chanshige\Messages;
 
+use LogicException;
+use Chanshige\Interfaces\SlackMessageInterface;
+
 /**
  * Class SlackMessage
  *
@@ -98,13 +101,16 @@ class SlackMessage extends AbstractSlackMessage
     }
 
     /**
-     * @param SlackAttachment[] $attachments
+     * @param SlackMessageInterface[] $attachments
      * @return SlackMessage
      */
     public function attachments(array $attachments): self
     {
-        /** @var SlackAttachment $attachment */
         foreach ($attachments as $attachment) {
+            if (!$attachment instanceof SlackMessageInterface) {
+                throw new LogicException('Must hold only SlackMessageInterface instances.');
+            }
+
             $this->attachments[] = $attachment->payload();
         }
 

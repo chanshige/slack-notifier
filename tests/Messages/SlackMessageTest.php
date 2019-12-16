@@ -103,4 +103,13 @@ class SlackMessageTest extends TestCase
             (string)$message
         );
     }
+
+    /**
+     * @expectedException \LogicException
+     * @expectedExceptionMessage A Chanshige\Messages\SlackMessage::attachments must hold only Chanshige\Interfaces\SlackMessageInterface instances.
+     */
+    public function testFailedAttachmentInstance()
+    {
+        (new SlackMessage())->attachments([new \ArrayIterator()]);
+    }
 }

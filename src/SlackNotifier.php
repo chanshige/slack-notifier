@@ -41,20 +41,7 @@ class SlackNotifier implements SlackNotifierInterface
     {
         return $this->client->post(
             $this->uri,
-            $this->jsonOption($message->payload())
+            [RequestOptions::JSON => $message->payload()]
         );
-    }
-
-    /**
-     * return array with guzzle json option.
-     *
-     * @param array $data
-     * @return array
-     */
-    protected function jsonOption(array $data): array
-    {
-        return [
-            RequestOptions::JSON => $data
-        ];
     }
 }

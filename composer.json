@@ -40,9 +40,11 @@
   },
   "scripts": {
     "test": [
-      "phpmd src text ./phpmd.xml",
-      "phpcs src",
       "phpunit"
+    ],
+    "qa": [
+      "phpmd src text ./phpmd.xml",
+      "phpcs src"
     ],
     "cs": [
       "php-cs-fixer fix --dry-run --diff --diff-format udiff ./src"

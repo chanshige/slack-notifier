@@ -30,6 +30,9 @@ class SlackAttachment extends AbstractSlackMessage
     protected $title_link;
 
     /** @var string|null */
+    protected $text;
+
+    /** @var string|null */
     protected $image_url;
 
     /** @var string|null */
@@ -103,6 +106,17 @@ class SlackAttachment extends AbstractSlackMessage
     public function titleLink(string $title_link): self
     {
         $this->title_link = $title_link;
+
+        return $this;
+    }
+
+    /**
+     * @param string $message
+     * @return SlackAttachment
+     */
+    public function message(string $message): self
+    {
+        $this->text = $message;
 
         return $this;
     }

@@ -61,6 +61,7 @@ class SlackMessageTest extends TestCase
             ->title('text')
             ->footer('footer message')
             ->footerIcon('http://localhost.icon.url')
+            ->message('attachment message')
             ->imageUrl('localhost.image.url')
             ->thumbUrl('localhost.thumb.url')
             ->titleLink('localhost.title.url');
@@ -90,6 +91,7 @@ class SlackMessageTest extends TestCase
                     "pretext" => "pretext",
                     "title" => "text",
                     "title_link" => "localhost.title.url",
+                    "text" => "attachment message",
                     "image_url" => "localhost.image.url",
                     "thumb_url" => "localhost.thumb.url",
                     "footer" => "footer message",

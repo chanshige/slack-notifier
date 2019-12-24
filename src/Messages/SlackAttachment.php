@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Chanshige\Messages;
 
+use DateTimeInterface;
+
 /**
  * Class SlackAttachment
  *
@@ -43,6 +45,9 @@ class SlackAttachment extends AbstractSlackMessage
 
     /** @var string|null */
     protected $footer_icon;
+
+    /** @var string */
+    protected $ts;
 
     /**
      * @param string $fallback
@@ -161,6 +166,17 @@ class SlackAttachment extends AbstractSlackMessage
     public function footerIcon(string $footer_icon): self
     {
         $this->footer_icon = $footer_icon;
+
+        return $this;
+    }
+
+    /**
+     * @param DateTimeInterface $dateTime
+     * @return $this
+     */
+    public function timestamp(DateTimeInterface $dateTime)
+    {
+        $this->ts = $dateTime->format('YmdHis.v');
 
         return $this;
     }

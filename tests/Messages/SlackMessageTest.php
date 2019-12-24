@@ -51,7 +51,8 @@ class SlackMessageTest extends TestCase
             ->footerIcon('http://localhost.icon.url')
             ->imageUrl('localhost.image.url')
             ->thumbUrl('localhost.thumb.url')
-            ->titleLink('localhost.title.url');
+            ->titleLink('localhost.title.url')
+            ->timestamp(new \DateTimeImmutable('2019-12-24 12:34:56.092'));
 
         $attachment1 = new SlackAttachment();
         $attachment1->fallback('fallback message')
@@ -83,6 +84,7 @@ class SlackMessageTest extends TestCase
                     "thumb_url" => "localhost.thumb.url",
                     "footer" => "footer message",
                     "footer_icon" => "http://localhost.icon.url",
+                    "ts" => "20191224123456.092"
                 ],
                 [
                     "fallback" => "fallback message",
